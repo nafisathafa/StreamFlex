@@ -1,0 +1,493 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #151515;
+}
+
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    height: 100%;
+    color: white;
+    font-family: "Sen", sans-serif;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    font-size: 30px;
+    color: #4dbf00;
+}
+
+.menu-container {
+    flex: 6;
+}
+
+.menu-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.menu-list-item {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.menu-list-item.active {
+    font-weight: bold;
+}
+
+.profile-container {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.profile-text-container {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.profile-picture {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #333;
+}
+
+.login-button,
+.featured-button,
+.movie-list-item-button {
+    background-color: #4dbf00;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-button,
+.featured-button {
+    padding: 10px 20px;
+}
+
+.login-button:hover,
+.featured-button:hover,
+.movie-list-item-button:hover {
+    background-color: #3a8c03;
+}
+
+
+/* ---------- Theme toggle ---------- */
+
+.toggle {
+    width: 40px;
+    height: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-icon {
+    color: goldenrod;
+    font-size: 11px;
+}
+
+.toggle-ball {
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+    width: 50px;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.left-menu-icon {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+
+/* ---------- Main container ---------- */
+
+.container {
+    background-color: #151515;
+    min-height: calc(100vh - 50px);
+    color: white;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+
+.content-container {
+    padding: 0 20px;
+}
+
+.featured-content {
+    position: relative;
+    overflow: hidden;
+    height: 50vh;
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 10px;
+    background: #222 url("stranger.jpeg") center / cover no-repeat;
+}
+
+.featured-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515);
+}
+
+.featured-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.featured-desc {
+    max-width: 500px;
+    color: lightgray;
+    margin: 30px 0;
+    line-height: 1.5;
+}
+
+
+/* ---------- Movie rows ---------- */
+
+.movie-list-container {
+    padding: 0 20px;
+}
+
+.movie-list-title {
+    margin-top: 10px;
+}
+
+.movie-list-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-list {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    transform: translateX(0);
+    transition: transform 1s ease-in-out;
+}
+
+.movie-list-item {
+    flex-shrink: 0;
+    margin-right: 30px;
+    position: relative;
+}
+
+.movie-list-item:hover .movie-list-item-img {
+    transform: scale(1.2);
+    margin: 0 30px;
+    opacity: 0.5;
+}
+
+.movie-list-item:hover .movie-list-item-title,
+.movie-list-item:hover .movie-list-item-desc,
+.movie-list-item:hover .movie-list-item-button {
+    opacity: 1;
+}
+
+.movie-list-item-img {
+    transition: all 1s ease-in-out;
+    width: 270px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    background: #333;
+}
+
+.movie-list-item-title {
+    background-color: #333;
+    color: white;
+    padding: 0 10px;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 50px;
+    max-width: 230px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.movie-list-item-desc {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    width: 230px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.movie-list-item-button {
+    padding: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.arrow {
+    font-size: 120px;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    color: lightgray;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.arrow:hover {
+    opacity: 0.9;
+}
+
+
+/* ---------- Light mode (body.light) ---------- */
+
+body.light {
+    background-color: white;
+}
+
+body.light .container {
+    background-color: white;
+}
+
+body.light .navbar-container {
+    background-color: white;
+    color: black;
+}
+
+body.light .navbar {
+    background-color: white;
+}
+
+body.light .sidebar {
+    background-color: white;
+}
+
+body.light .left-menu-icon {
+    color: black;
+}
+
+body.light .movie-list-title {
+    color: black;
+}
+
+body.light .featured-title {
+    color: black;
+    text-shadow: none;
+}
+
+body.light .featured-desc {
+    color: #333;
+}
+
+body.light .featured-content::after {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
+}
+
+body.light .toggle {
+    background-color: black;
+}
+
+body.light .toggle-ball {
+    background-color: white;
+    transform: translateX(-20px);
+}
+
+
+/* ---------- Footer ---------- */
+
+.footer {
+    background-color: #111;
+    color: #ccc;
+    padding: 40px 50px 20px;
+    margin-left: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    color: #4dbf00;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    min-width: 300px;
+}
+
+.footer-column h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+
+/* ---------- Trailer modal ---------- */
+
+.video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.video-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 10px;
+    background: black;
+}
+
+.close-btn {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 940px) {
+    .menu-container {
+        display: none;
+    }
+    .logo-container {
+        flex: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 0 20px;
+    }
+    .featured-title {
+        font-size: 32px;
+    }
+    .footer {
+        padding: 30px 20px 20px;
+    }
+}

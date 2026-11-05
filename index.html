@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>StreamFlex</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">StreamFlex</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active">Home</li>
+                    <li class="menu-list-item">Movies</li>
+                    <li class="menu-list-item">Series</li>
+                    <li class="menu-list-item">Popular</li>
+                    <li class="menu-list-item">Trends</li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-picture" src="PROFILE.jpeg" alt="Profile">
+                <div class="profile-text-container">
+                    <button class="login-button" onclick="window.location.href='register.html'">LOGIN</button>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="toggle" id="themeToggle" title="Toggle theme">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <i class="left-menu-icon fas fa-search"></i>
+        <i class="left-menu-icon fas fa-home"></i>
+        <i class="left-menu-icon fas fa-users"></i>
+        <i class="left-menu-icon fas fa-bookmark"></i>
+        <i class="left-menu-icon fas fa-tv"></i>
+        <i class="left-menu-icon fas fa-hourglass-start"></i>
+        <i class="left-menu-icon fas fa-shopping-cart"></i>
+    </div>
+
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content">
+                <video class="featured-bg" src="stranger-trailer.mp4" poster="stranger.jpeg" autoplay muted loop playsinline></video>
+            </div>
+            <h1 class="featured-title">STRANGER THINGS</h1>
+            <p class="featured-desc">Set in the 1980s in the small town of Hawkins, Indiana, Stranger Things follows a group of kids who uncover a secret government experiment that opens a portal to a terrifying alternate dimension called the Upside Down. As they search for their
+                missing friend, they encounter supernatural forces, a mysterious girl with psychic powers, and dark government secrets. The series blends nostalgic pop culture with suspense and emotional storytelling.</p>
+            <button class="featured-button" onclick="openVideo('stranger-trailer.mp4')">WATCH</button>
+        </div>
+
+        <div id="rows-1"></div>
+
+        <div class="content-container">
+            <div class="featured-content">
+                <video class="featured-bg" src="summer-trailer.mp4" poster="summer.jpeg" autoplay muted loop playsinline></video>
+            </div>
+            <h1 class="featured-title">THE SUMMER I TURNED PRETTY</h1>
+            <p class="featured-desc">Based on the bestselling novel by Jenny Han, The Summer I Turned Pretty follows Belly, a teenage girl who returns to the beach house she visits every summer with her family and close friends. This summer, everything changes as she finds herself
+                caught in a love triangle between two brothers, Conrad and Jeremiah. It's a heartfelt coming-of-age story about first love, heartbreak, and growing up.</p>
+            <button class="featured-button" onclick="openVideo('summer-trailer.mp4')">WATCH</button>
+        </div>
+
+        <div id="rows-2"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3 class="footer-logo">StreamFlex</h3>
+                <p>Watch TV shows and movies anytime, anywhere.<br>Stream from a huge library of content.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Devices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 StreamFlex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="videoModal" class="video-modal">
+        <div class="video-container">
+            <span class="close-btn" onclick="closeVideo()">&times;</span>
+            <video id="modalVideo" controls playsinline></video>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
